@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_database
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: restaurant
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+      
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: restaurant
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      NODE_ENV: desarrollo
+      DB_HOST: db
+      DB_USER: admin
+      DB_PASSWORD: password
+      DB_NAME: usersdb
+
+volumes:
+  mysql_data:

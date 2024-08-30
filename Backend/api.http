@@ -1,0 +1,265 @@
+### ROLES
+### GET ALL THE ROLES
+GET http://localhost:3000/api/roles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbCI6MiwiaWF0IjoxNzA5MDc3NDQxfQ.cBRMWSMkhqxuYaQgWtsLzqeVb3UcAxwz5Oyp5w4QZyo
+
+### GET ROLE BY ID
+GET http://localhost:3000/api/roles/2
+
+### CREATE A NEW ROLE
+POST http://localhost:3000/api/roles
+Content-Type: application/json
+
+{
+  "name": "test"
+}
+
+### UPDATE A ROLE
+PATCH http://localhost:3000/api/roles/3
+Content-Type: application/json
+
+{
+  "name": "test-Update"
+}
+
+### DELETE A ROLE
+DELETE http://localhost:3000/api/roles/8
+
+
+### USUARIOS
+### GET ALL THE USERS
+GET http://localhost:3000/api/users
+
+### GET USER BY ID
+GET http://localhost:3000/api/users/100
+
+### CREATE A NEW USER
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "Carlos",
+    "surname": "Puebla"
+  },
+  "user": {
+    "email": "carl5ot55ts@gmail.com",
+    "password": "Password1234%",
+    "role_id": 1
+  }
+}
+### CREATE A NEW USER WITH TOKEN
+POST http://localhost:3000/api/users
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTcwODk5MTExOX0.ySzO9PwU5L1bQIoiM4OSA62X_FQS_TpmYv4mZO0n3oI
+
+{
+  "username": "JWT",
+  "password": "Password1234%",
+  "role_id": 1
+}
+
+### UPDATE A USER
+PATCH http://localhost:3000/api/users/15
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "Carlos",
+  },
+  "user": {
+    "email": "CarlosNeksjksswEmail@gmail.com",
+    "password": "Password1234%",
+    "role_id": 1
+  }
+}
+
+### DELETE A USER
+DELETE http://localhost:3000/api/users/8
+
+
+### LOGIN
+### LOGIN COMUN DE USUARIO
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "Admin123$"
+}
+
+
+### CATEGORIAS
+### GET ALL THE ROLES
+GET http://localhost:3000/api/categories
+
+
+### GET CATEGORY BY ID
+GET http://localhost:3000/api/categories/2
+
+### CREATE A NEW CATEGORY
+POST http://localhost:3000/api/localhost:3000/api/categories
+Content-Type: application/json
+
+{
+  "name": "test"
+}
+
+### UPDATE A ROLE
+PATCH http://localhost:3000/api/localhost:3000/api/categories/3
+Content-Type: application/json
+
+{
+  "name": "test-Update"
+}
+
+### DELETE A ROLE
+DELETE http://localhost:3000/api/localhost:3000/api/categories/8
+
+### PLATILLOS
+### OBTENER TODOS LOS PLATILLOS
+GET http://localhost:3000/api/dishes
+
+### OBTENER UN PLATILLO POR SU ID
+GET http://localhost:3000/api/dishes/1
+
+### CREAR UN NUEVO PLATILLO
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "name": "Solomillo braseado en salsa de higos ",
+  "category_id": 1,
+  "price": 7.95,
+  "weight": 450,
+  "calories": 733,
+  "proteins": 40,
+  "carbohydrates": 39.6,
+  "fats": 28.3,
+  "saturated_fats": 13,
+  "sugars": 22,
+  "dietary_fiber": 6.7,
+  "description": "Solomillo, salsa de higos (caldo de pollo, cebolla, higo seco, mistela, almidón de maíz, sal, pimienta), patata, tomate seco, pasta de ajo, hierbas provenzales, col lombarda, pasas cebolla, anacardos, aceite de oliva virgen, sal, pimienta.",
+  "image": "C:\\Users\\HP\\Downloads\\sushi.jpg"
+}
+
+### ACTUALIZAR UN PLATILLO
+PATCH http://localhost:3000/api/dishes/1
+Content-Type: application/json
+
+{
+  "name": "Platillo actualizadoo"
+}
+
+### ELIMINAR UN PLATILLO
+DELETE http://localhost:3000/api/dishes/3
+
+
+### STATUS
+### GET ALL THE STATUS
+GET http://localhost:3000/api/status
+
+### GET STATE BY ID
+GET http://localhost:3000/api/status/2
+
+### CREATE A NEW STATUS
+POST http://localhost:3000/api/status
+Content-Type: application/json
+
+{
+  "name": "test"
+}
+
+### UPDATE A STATE
+PATCH http://localhost:3000/api/status/6
+Content-Type: application/json
+
+{
+  "name": "test-Update"
+}
+
+### DELETE A STATE
+DELETE http://localhost:3000/api/status/6
+
+
+### RECEIPT
+### GET ALL THE RECEIPTS
+GET http://localhost:3000/api/receipts
+
+### GET RECEIPT BY ID
+GET http://localhost:3000/api/orders/23
+
+### CREATE A NEW RECEIPT
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+    "user_id": 1,
+    "order_status_id": 1,
+    "direction": "New village",
+    "phone": "+591 3424325",
+    "dishes": [
+      {
+        "dish_id": 1,
+        "count": 4
+      },
+      {
+        "dish_id": 2,
+        "count": 2
+      }
+   ]
+}
+
+### UPDATE A RECEIPT
+PATCH http://localhost:3000/api/receipts/23
+Content-Type: application/json
+
+{
+  "receipt": {
+    "user_id": 1,
+    "status_id": 2,
+    "manager_id": 1,
+    "dishes": [
+      {
+        "dish_id": 2,
+        "count": 10
+      }
+    ]
+  }
+}
+
+### DELETE A RECEIPT
+DELETE http://localhost:3000/api/receipts/2
+
+
+
+### PLATILLOS DE LA CARTA
+### OBTENER TODOS LOS PLATILLOS DE LA CARTA
+GET http://localhost:3000/api/cartdishes
+
+### OBTENER UN PLATILLO DE LA CARTA POR SU ID
+GET http://localhost:3000/api/cartdishes/1
+
+### AGREGAR UN NUEVO PLATILLO A LA CARTA
+POST http://localhost:3000/api/cartdishes
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "dish_id": 1,
+  "count": 10
+}
+
+### ACTUALIZAR UN PLATILLO DE LA CARTA
+PATCH http://localhost:3000/api/cartdishes/2
+Content-Type: application/json
+
+{
+  "dish_id": 2
+}
+
+### ELIMINAR UN PLATILLO DE LA CARTA
+DELETE http://localhost:3000/api/cartdishes/2
+
+
+
